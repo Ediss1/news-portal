@@ -1,0 +1,10 @@
+<nav class="navbar" *ngIf="isLoggedIn">
+  <div class="navbar-container">
+    <a href="/" class="logo">News Portal</a>
+    <ul class="nav-links">
+      <li><a (click)="goToHome()">Home</a></li>
+      <li *ngIf="isAdmin"><a (click)="goToAddNews()">Add News</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>

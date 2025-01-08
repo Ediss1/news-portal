@@ -1,0 +1,45 @@
+<div class="add-news-page">
+  <h1>Add News</h1>
+  <form (ngSubmit)="addNews()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        id="title"
+        [(ngModel)]="news.title"
+        type="text"
+        placeholder="News title"
+        name="title"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea
+        id="content"
+        [(ngModel)]="news.content"
+        placeholder="Write the news content here..."
+        name="content"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select
+        id="category"
+        [(ngModel)]="news.category"
+        name="category"
+        required
+      >
+        <option value="" disabled selected>Select a category</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-submit">Add News</button>
+  </form>
+
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+</div>

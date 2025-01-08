@@ -1,0 +1,81 @@
+body{
+  background-image: url('/src/assets/news2.jpg');
+}
+
+/* Main Welcome Container */
+.welcome-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.welcome-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Description Text */
+.welcome-container p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* Buttons Container */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+}
+
+/* Login and Register Buttons */
+.action-buttons .btn-login,
+.action-buttons .btn-register {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-buttons .btn-login {
+  background-color: #007bff; /* Blue for Login */
+}
+
+.action-buttons .btn-login:hover {
+  background-color: #0056b3; /* Darker Blue on Hover */
+}
+
+.action-buttons .btn-register {
+  background-color: #28a745; /* Green for Register */
+}
+
+.action-buttons .btn-register:hover {
+  background-color: #1e7e34; /* Darker Green on Hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .welcome-container h1 {
+    font-size: 2rem;
+  }
+
+  .action-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+  }
+
+  .action-buttons .btn-login,
+  .action-buttons .btn-register {
+    width: 100%; /* Full-width buttons */
+  }
+}

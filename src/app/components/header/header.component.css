@@ -1,0 +1,63 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #ffffff; /* Bijela pozadina za čistoću */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Suptilna sjenka */
+  border-bottom: 2px solid #e0e0e0; /* Donja linija za naglasak */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Da uvijek bude na vrhu */
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333; /* Tamnosiva boja teksta */
+  text-decoration: none; /* Bez podcrtavanja */
+  transition: color 0.3s ease;
+}
+
+.navbar .logo:hover {
+  color: #4caf50; /* Zelenkasti efekat na hover */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: #555555; /* Neutralna siva boja */
+  font-size: 16px;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px; /* Zaobljeni uglovi */
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #4caf50; /* Zelenkasta pozadina na hover */
+  color: #ffffff; /* Bijeli tekst */
+}
+
+.nav-links a.active {
+  background-color: #4caf50; /* Aktivna stranica ima zelenu pozadinu */
+  color: #ffffff; /* Bijeli tekst za aktivnu stranicu */
+}
