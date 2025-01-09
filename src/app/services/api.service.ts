@@ -18,14 +18,14 @@ export class ApiService {
 
   login(credentials: any): Observable<any> {
     return this.http.post('http://localhost/news-portal-api/login.php', credentials, {
-      withCredentials: true, // Include credentials for session management
+      withCredentials: true,
     });
   }
   
   
   logout(): Observable<any> {
     return this.http.post(`${this.BASE_URL}/logout.php`, {}, {
-      withCredentials: true, // Send session cookies
+      withCredentials: true,
       headers: { 'Content-Type': 'application/json' },
     });
   }
@@ -48,33 +48,27 @@ export class ApiService {
 
   addNews(news: any): Observable<any> {
     return this.http.post(`${this.BASE_URL}/add_news.php`, news, {
-      withCredentials: true, // Include cookies for session handling
+      withCredentials: true,
       headers: { 'Content-Type': 'application/json' },
     });
   }
 
   getNewsDetails(id: string): Observable<any> {
     return this.http.get(`${this.BASE_URL}/get_news_details.php?id=${id}`, {
-      withCredentials: true, // Include credentials for session management
+      withCredentials: true,
     });
   }
   
   deleteNews(newsId: string): Observable<any> {
     return this.http.delete(`${this.BASE_URL}/delete_news.php?id=${newsId}`, {
-      withCredentials: true, // Include session credentials
+      withCredentials: true,
     });
   }
   
   updateNews(id: string, news: any): Observable<any> {
     return this.http.put(`${this.BASE_URL}/update_news.php?id=${id}`, news, {
-      withCredentials: true, // Include credentials
-      headers: { 'Content-Type': 'application/json' }, // Set content type
+      withCredentials: true,
+      headers: { 'Content-Type': 'application/json' },
     });
   }
-  
-  
-  
-  
-  
-  
 }

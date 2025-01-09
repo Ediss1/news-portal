@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Import CommonModule
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 
@@ -13,20 +13,38 @@ import { ApiService } from '../../services/api.service';
 
 })
 export class EditNewsComponent implements OnInit {
-  news = { title: '', content: '', category: '' }; // Form model for editing
+  news = { title: '', content: '', category: '' };
   errorMessage: string = '';
   successMessage: string = '';
+  categories: string[] = [];
   newsId: string | null = null;
 
   constructor(private api: ApiService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    this.newsId = this.route.snapshot.paramMap.get('id'); // Get the news ID from the route
+    this.newsId = this.route.snapshot.paramMap.get('id');
     if (this.newsId) {
       this.loadNewsDetails(this.newsId);
+      this.loadCategories();
     } else {
-      this.errorMessage = 'Invalid news ID.';
+      this.errorMessage = 'Nevažeći ID vijesti.';
     }
+  }
+
+  loadCategories() {
+    this.api.getCategories().subscribe(
+      (response: any) => {
+        if (response.success) {
+          this.categories = response.categories;
+        } else {
+          this.errorMessage = 'Učitavanje kategorija nije uspjelo.';
+        }
+      },
+      (error) => {
+        this.errorMessage = 'Došlo je do greške prilikom preuzimanja kategorija.';
+        console.error('Greška pri preuzimanju kategorije:', error);
+      }
+    );
   }
 
   loadNewsDetails(id: string): void {
@@ -35,8 +53,8 @@ export class EditNewsComponent implements OnInit {
         this.news = response;
       },
       (error: any) => {
-        console.error('Error fetching news details:', error);
-        this.errorMessage = error.error?.message || 'Failed to load news details.';
+        console.error('Greška pri preuzimanju detalja vijesti:', error);
+        this.errorMessage = error.error?.message || 'Učitavanje detalja vijesti nije uspjelo.';
       }
     );
   }
@@ -45,16 +63,16 @@ export class EditNewsComponent implements OnInit {
     if (this.newsId) {
       this.api.updateNews(this.newsId, this.news).subscribe(
         (response: any) => {
-          console.log('Update response:', response); // Log the response
-          this.successMessage = response.message || 'News updated successfully!';
+          console.log('Ažuriranje odgovor:', response);
+          this.successMessage = response.message || 'Vijesti su uspješno ažurirane!';
           this.errorMessage = '';
           setTimeout(() => {
-            this.router.navigate(['/news', this.newsId]); // Navigate to news details
+            this.router.navigate(['/news', this.newsId]);
           }, 2000);
         },
         (error: any) => {
-          console.error('Update error:', error);
-          this.errorMessage = error.error?.message || 'Failed to update news.';
+          console.error('Greška pri ažuriranju:', error);
+          this.errorMessage = error.error?.message || 'Ažuriranje vijesti nije uspjelo.';
           this.successMessage = '';
         }
       );

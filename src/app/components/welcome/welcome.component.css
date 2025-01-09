@@ -1,81 +1,62 @@
-body{
-  background-image: url('/src/assets/news2.jpg');
-}
-
-/* Main Welcome Container */
 .welcome-container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 20px;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Heading */
-.welcome-container h1 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Description Text */
-.welcome-container p {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 30px;
-  line-height: 1.5;
-}
-
-/* Buttons Container */
-.action-buttons {
+  height: 100vh;
   display: flex;
   justify-content: center;
-  gap: 20px; /* Space between buttons */
+  align-items: center;
+  color: #000000;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
 }
 
-/* Login and Register Buttons */
-.action-buttons .btn-login,
-.action-buttons .btn-register {
-  padding: 10px 20px;
-  font-size: 1.2rem;
+.welcome-banner {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  max-width: 500px;
+}
+
+.welcome-banner h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
   font-weight: bold;
-  color: white;
+}
+
+.welcome-banner p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-login,
+.btn-register {
+  padding: 10px 20px;
+  font-size: 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.action-buttons .btn-login {
-  background-color: #007bff; /* Blue for Login */
+.btn-login {
+  background-color: #4caf50;
+  color: #ffffff;
 }
 
-.action-buttons .btn-login:hover {
-  background-color: #0056b3; /* Darker Blue on Hover */
+.btn-login:hover {
+  background-color: #45a045;
 }
 
-.action-buttons .btn-register {
-  background-color: #28a745; /* Green for Register */
+.btn-register {
+  background-color: #ff9800;
+  color: #ffffff;
 }
 
-.action-buttons .btn-register:hover {
-  background-color: #1e7e34; /* Darker Green on Hover */
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  .welcome-container h1 {
-    font-size: 2rem;
-  }
-
-  .action-buttons {
-    flex-direction: column; /* Stack buttons vertically */
-  }
-
-  .action-buttons .btn-login,
-  .action-buttons .btn-register {
-    width: 100%; /* Full-width buttons */
-  }
+.btn-register:hover {
+  background-color: #fb8c00;
 }

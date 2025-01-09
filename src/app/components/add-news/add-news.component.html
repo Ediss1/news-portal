@@ -1,8 +1,8 @@
 <div class="add-news-page">
-  <h1>Add News</h1>
+  <h1>Dodaj vijesti</h1>
   <form (ngSubmit)="addNews()">
     <div class="form-group">
-      <label for="title">Title</label>
+      <label for="title">Naslov</label>
       <input
         id="title"
         [(ngModel)]="news.title"
@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-group">
-      <label for="content">Content</label>
+      <label for="content">Sadržaj</label>
       <textarea
         id="content"
         [(ngModel)]="news.content"
@@ -25,19 +25,19 @@
     </div>
 
     <div class="form-group">
-      <label for="category">Category</label>
+      <label for="category">Kategorija</label>
       <select
         id="category"
         [(ngModel)]="news.category"
         name="category"
         required
       >
-        <option value="" disabled selected>Select a category</option>
+        <option value="" disabled selected>Izaberi kategoriju</option>
         <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
       </select>
     </div>
 
-    <button type="submit" class="btn-submit">Add News</button>
+    <button type="submit" class="btn-submit">Dodaj vijesti</button>
   </form>
 
   <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>

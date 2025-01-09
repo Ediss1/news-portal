@@ -1,32 +1,34 @@
 <div class="home-page">
-  <h2>Latest News</h2>
+  <h2>Najnovije vijesti</h2>
 
-  <!-- Filter Section -->
   <div class="filters">
-    <label for="category-filter">Category:</label>
-    <select id="category-filter" [(ngModel)]="selectedCategory" (change)="applyFilters()">
-      <option value="">All Categories</option>
-      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-    </select>
+    <div>
+      <label for="category-filter">Kategorija:</label>
+      <select id="category-filter" [(ngModel)]="selectedCategory" (change)="applyFilters()">
+        <option value="">Sve kategorije</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
 
-    <label for="date-filter">Date:</label>
-    <input
-      id="date-filter"
-      type="date"
-      [(ngModel)]="selectedDate"
-      (change)="applyFilters()"
-    />
+    <div>
+      <label for="date-filter">Datum:</label>
+      <input
+        id="date-filter"
+        type="date"
+        [(ngModel)]="selectedDate"
+        (change)="applyFilters()"
+      />
+    </div>
   </div>
 
-  <!-- News List -->
   <div class="news-list">
     <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
     <div *ngFor="let newsItem of newsList" class="news-item">
       <h3>{{ newsItem.title }}</h3>
       <p>{{ newsItem.content | slice: 0:100 }}...</p>
-      <p><strong>Category:</strong> {{ newsItem.category }}</p>
-      <p><strong>Date:</strong> {{ newsItem.date }}</p>
-      <button (click)="viewDetails(newsItem.id)">Read More</button>
+      <p><strong>Kategorija:</strong> {{ newsItem.category }}</p>
+      <p><strong>Datum:</strong> {{ newsItem.date }}</p>
+      <button (click)="viewDetails(newsItem.id)">Pročitaj više</button>
     </div>
   </div>
 </div>

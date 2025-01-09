@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // For *ngIf
+import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -12,19 +12,19 @@ import { ApiService } from '../../services/api.service';
 })
 export class NewsDetailsComponent implements OnInit {
   news: any = null;
-  isAdmin: boolean = false; // Property to check admin status
+  isAdmin: boolean = false;
   errorMessage: string = '';
 
   constructor(private api: ApiService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    const user = JSON.parse(localStorage.getItem('user') || '{}'); // Retrieve user from localStorage
-    this.isAdmin = user.role === 'admin'; // Check if the user is an admin
-    const newsId = this.route.snapshot.paramMap.get('id'); // Get ID from route
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    this.isAdmin = user.role === 'admin';
+    const newsId = this.route.snapshot.paramMap.get('id');
     if (newsId) {
       this.getNewsDetails(newsId);
     } else {
-      this.errorMessage = 'Invalid news ID.';
+      this.errorMessage = 'Nevažeći ID vijesti.';
     }
   }
 
@@ -35,27 +35,26 @@ export class NewsDetailsComponent implements OnInit {
         this.errorMessage = '';
       },
       (error: any) => {
-        this.errorMessage = error.error?.message || 'Failed to fetch news details.';
+        this.errorMessage = error.error?.message || 'Dohvaćanje detalja vijesti nije uspjelo.';
       }
     );
   }
 
   editNews(): void {
-    // Navigate to the edit page
     this.router.navigate(['/edit-news', this.news.id]);
   }
 
   deleteNews(): void {
-    if (confirm('Are you sure you want to delete this news item?')) {
+    if (confirm('Jeste li sigurni da želite izbrisati ovu vijest?')) {
       this.api.deleteNews(this.news.id).subscribe(
         (response: any) => {
-          console.log('Delete response:', response);
-          alert('News deleted successfully!');
-          this.router.navigate(['/']); // Redirect to home after deletion
+          console.log('Obriši odgovor:', response);
+          alert('Vijesti su uspješno izbrisane!');
+          this.router.navigate(['/']);
         },
         (error: any) => {
-          console.error('Error deleting news:', error);
-          alert(error.error?.message || 'Failed to delete news.');
+          console.error('Greška prilikom brisanja vijesti:', error);
+          alert(error.error?.message || 'Brisanje vijesti nije uspjelo.');
         }
       );
     }

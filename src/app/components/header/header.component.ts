@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  imports: [CommonModule], // Ensure Router is imported
+  imports: [CommonModule],
 })
 export class HeaderComponent {
   isLoggedIn: boolean = false;
@@ -28,11 +28,11 @@ export class HeaderComponent {
     localStorage.removeItem('user');
     this.isLoggedIn = false;
     this.isAdmin = false;
-    this.router.navigate(['welcome']); // Navigate to Welcome Page
+    this.router.navigate(['welcome']);
   }
 
   goToHome(): void {
-    console.log('Navigating to Home');
+    console.log('Navigacija do početne stranice');
     this.router.navigate(['/']);
   }
 
@@ -40,7 +40,7 @@ export class HeaderComponent {
     if (this.isAdmin) {
       this.router.navigate(['/add-news']);
     } else {
-      alert('You do not have permission to access this page.');
+      alert('Nemate dozvolu za pristup ovoj stranici.');
       this.router.navigate(['/']);
     }
   }

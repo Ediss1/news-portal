@@ -2,17 +2,17 @@
   <div class="news-details">
     <h1>{{ news.title }}</h1>
     <div class="news-meta">
-      <p><strong>Author:</strong> {{ news.author }}</p>
-      <p><strong>Date:</strong> {{ news.date }}</p>
-      <p><strong>Category:</strong> {{ news.category }}</p>
+      <p><strong>Autor:</strong> {{ news.author }}</p>
+      <p><strong>Datum:</strong> {{ news.date }}</p>
+      <p><strong>Kategorija:</strong> {{ news.category }}</p>
     </div>
     <div class="news-content">
-      <h2>Content</h2>
+      <h2>Sadržaj</h2>
       <p>{{ news.content }}</p>
     </div>
     <div *ngIf="isAdmin" class="admin-actions">
-      <button (click)="editNews()" class="btn-edit">Edit</button>
-      <button (click)="deleteNews()" class="btn-delete">Delete</button>
+      <button (click)="editNews()" class="btn-edit">Uredi</button>
+      <button (click)="deleteNews()" class="btn-delete">Izbriši</button>
     </div>
   </div>
 </div>

@@ -9,11 +9,11 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard]}, // Default route
+  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'welcome', component: WelcomeComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'add-news', component: AddNewsComponent, canActivate: [AuthGuard]},
-  { path: 'news/:id', component: NewsDetailsComponent, canActivate: [AuthGuard] }, // News details
+  { path: 'news/:id', component: NewsDetailsComponent, canActivate: [AuthGuard] },
   { path: 'edit-news/:id', component: EditNewsComponent, canActivate: [AuthGuard] },
 ];

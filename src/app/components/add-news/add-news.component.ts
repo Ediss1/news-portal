@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // For [(ngModel)]
-import { CommonModule } from '@angular/common'; // For *ngIf
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -11,16 +11,16 @@ import { ApiService } from '../../services/api.service';
   imports: [FormsModule, CommonModule],
 })
 export class AddNewsComponent {
-  news = { title: '', content: '', category: '' }; // Initialize the news object
-  successMessage: string = ''; // Success message
-  errorMessage: string = ''; // Error message
-  categories: string[] = []; // Lista kategorija za dropdown
-  isCustomCategory: boolean = false; // Flag za provjeru da li korisnik unosi novu kategoriju
+  news = { title: '', content: '', category: '' };
+  successMessage: string = '';
+  errorMessage: string = '';
+  categories: string[] = [];
+  isCustomCategory: boolean = false;
 
   constructor(private api: ApiService) {}
 
   ngOnInit() {
-    this.loadCategories(); // Dohvaćanje kategorija pri učitavanju komponente
+    this.loadCategories();
   }
 
   loadCategories() {
@@ -29,12 +29,12 @@ export class AddNewsComponent {
         if (response.success) {
           this.categories = response.categories;
         } else {
-          this.errorMessage = 'Failed to load categories.';
+          this.errorMessage = 'Greška pri učitavanju kategorija.';
         }
       },
       (error) => {
-        this.errorMessage = 'An error occurred while fetching categories.';
-        console.error('Category fetch error:', error);
+        this.errorMessage = 'Došlo je do greške prilikom preuzimanja kategorija.';
+        console.error('Greška pri preuzimanju kategorije:', error);
       }
     );
   }
@@ -42,26 +42,26 @@ export class AddNewsComponent {
   toggleCustomCategory(event: any) {
     this.isCustomCategory = event.target.checked;
     if (this.isCustomCategory) {
-      this.news.category = ''; // Clear the category if custom is selected
+      this.news.category = '';
     }
   }
 
   addNews() {
     if (!this.news.title || !this.news.content || !this.news.category.trim()) {
-      this.errorMessage = 'All fields are required.';
+      this.errorMessage = 'Sva polja su obavezna.';
       return;
     }
   
     this.api.addNews(this.news).subscribe(
       (response: any) => {
-        this.successMessage = 'News added successfully!';
+        this.successMessage = 'Vijesti su uspješno dodane!';
         this.errorMessage = '';
-        this.news = { title: '', content: '', category: '' }; // Reset forme
-        this.isCustomCategory = false; // Reset custom category flag
+        this.news = { title: '', content: '', category: '' };
+        this.isCustomCategory = false;
       },
       (error) => {
-        this.errorMessage = 'Failed to add news. Please try again.';
-        console.error('Add news error:', error);
+        this.errorMessage = 'Dodavanje vijesti nije uspjelo. Molimo pokušajte ponovo.';
+        console.error('Greška u dodavanju vijesti:', error);
       }
     );
   }

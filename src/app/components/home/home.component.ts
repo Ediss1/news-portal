@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms'; // For [(ngModel)]
-import { CommonModule } from '@angular/common'; // For *ngIf
-import { RouterModule } from '@angular/router'; // Import RouterModule
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -10,20 +10,20 @@ import { ApiService } from '../../services/api.service';
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [FormsModule, CommonModule, RouterModule], // Import CommonModule
+  imports: [FormsModule, CommonModule, RouterModule],
 })
 export class HomeComponent {
   newsList: any[] = [];
   errorMessage: string = '';
-  categories: string[] = []; // Example categories
-  selectedCategory: string = ''; // For category filter
+  categories: string[] = [];
+  selectedCategory: string = '';
   selectedDate: string = '';
 
   constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit() {
-    this.loadNews(); // Load all news on component initialization
-    this.loadCategories(); // Load available categories for filtering
+    this.loadNews();
+    this.loadCategories();
   }
 
   loadNews() {
@@ -34,11 +34,11 @@ export class HomeComponent {
     this.api.getNews(filters).subscribe(
       (response: any) => {
         this.newsList = response.news || [];
-        this.errorMessage = this.newsList.length ? '' : 'No news available.';
+        this.errorMessage = this.newsList.length ? '' : 'Nema dostupnih vijesti.';
       },
       (error: any) => {
-        this.errorMessage = 'Failed to load news. Please try again later.';
-        console.error('Error fetching news:', error);
+        this.errorMessage = 'Učitavanje vijesti nije uspjelo. Molimo pokušajte ponovo kasnije.';
+        console.error('Greška pri preuzimanju vijesti:', error);
       }
     );
   }
@@ -49,12 +49,12 @@ export class HomeComponent {
         if (response.success) {
           this.categories = response.categories;
         } else {
-          this.errorMessage = 'Failed to load categories.';
+          this.errorMessage = 'Učitavanje kategorija nije uspjelo.';
         }
       },
       (error: any) => {
-        console.error('Error fetching categories:', error);
-        this.errorMessage = 'An error occurred while fetching categories.';
+        console.error('Greška pri preuzimanju kategorija:', error);
+        this.errorMessage = 'Došlo je do greške prilikom preuzimanja kategorija.';
       }
     );
   }
@@ -64,6 +64,6 @@ export class HomeComponent {
   }
 
   viewDetails(newsId: number) {
-    this.router.navigate(['/news', newsId]); // Navigate to the News Details page
+    this.router.navigate(['/news', newsId]);
   }
 }

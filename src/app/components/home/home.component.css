@@ -1,7 +1,9 @@
 .home-page {
+  margin: auto;
+  width: 80%;
   padding: 20px;
-  background-color: #ffffff; /* Bijela pozadina */
-  color: #333333; /* Tamnosiva boja teksta */
+  background-color: #ffffff;
+  color: #333333;
   font-family: Arial, sans-serif;
 }
 
@@ -17,7 +19,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f9f9f9; /* Lagana pozadina za filtere */
+  background-color: #f9f9f9;
   border: 1px solid #dddddd;
   padding: 15px;
   border-radius: 8px;

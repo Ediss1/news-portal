@@ -2,16 +2,16 @@
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #ffffff; /* Bijela pozadina */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Suptilna sjena */
-  border-radius: 8px; /* Zaobljeni uglovi */
-  font-family: Arial, sans-serif; /* Standardan font */
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
 }
 
 .add-news-page h1 {
   text-align: center;
   font-size: 24px;
-  color: #333333; /* Tamnosiva boja */
+  color: #333333;
   margin-bottom: 20px;
 }
 
@@ -23,21 +23,21 @@
   display: block;
   font-size: 14px;
   font-weight: bold;
-  color: #555555; /* Neutralna siva boja */
+  color: #555555;
   margin-bottom: 5px;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
-  width: calc(100% - 20px); /* Osigurava razmak sa obje strane */
+  width: calc(100% - 20px);
   padding: 10px;
-  border: 1px solid #cccccc; /* Suptilna granica */
+  border: 1px solid #cccccc;
   border-radius: 4px;
   font-size: 14px;
   color: #333333;
-  background-color: #f9f9f9; /* Blago svjetlija pozadina */
-  margin-right: 10px; /* Dodaje razmak s desne strane */
+  background-color: #f9f9f9;
+  margin-right: 10px;
   outline: none;
   transition: border-color 0.3s ease;
 }
@@ -45,19 +45,19 @@
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: #4caf50; /* Zelenkasti naglasak */
+  border-color: #4caf50;
 }
 
 textarea {
-  resize: vertical; /* Omogućava promjenu veličine po visini */
+  resize: vertical;
   min-height: 100px;
 }
 
 .btn-submit {
   display: block;
-  width: calc(100% - 20px); /* Osigurava razmak */
+  width: calc(100% - 20px);
   padding: 10px;
-  background-color: #4caf50; /* Zelenkasta pozadina */
+  background-color: #4caf50;
   color: #ffffff;
   border: none;
   border-radius: 4px;
@@ -68,18 +68,18 @@ textarea {
 }
 
 .btn-submit:hover {
-  background-color: #45a045; /* Tamnija zelena na hover */
+  background-color: #45a045;
 }
 
 .error {
-  color: #e53935; /* Crvena boja za greške */
+  color: #e53935;
   font-size: 14px;
   text-align: center;
   margin-top: 10px;
 }
 
 .success {
-  color: #4caf50; /* Zelenkasta boja za uspjeh */
+  color: #4caf50;
   font-size: 14px;
   text-align: center;
   margin-top: 10px;
