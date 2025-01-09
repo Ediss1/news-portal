@@ -1,0 +1,68 @@
+<div class="profile-page">
+    <h1>Moj profil</h1>
+    <form (ngSubmit)="updateProfile()">
+      <div class="form-group">
+        <label for="name">Ime:</label>
+        <input id="name" [(ngModel)]="user.name" name="name" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="surname">Prezime:</label>
+        <input id="surname" [(ngModel)]="user.surname" name="surname" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" [(ngModel)]="user.email" name="email" required />
+      </div>
+  
+      <button type="submit" class="btn-submit">Uredi profil</button>
+    </form>
+  
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+    <div class="change-password-section">
+        <h2>Promijeni lozinku</h2>
+        <button class="btn-change-pass" (click)="toggleChangePassword()">Promijeni lozinku</button>
+      
+        <div *ngIf="isChangingPassword">
+          <form (ngSubmit)="changePassword()" class="change-password-form">
+            <div class="form-group">
+              <label for="current-password">Trenutna lozinka:</label>
+              <input
+                id="current-password"
+                type="password"
+                [(ngModel)]="passwordData.currentPassword"
+                name="currentPassword"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="new-password">Nova lozinka:</label>
+              <input
+                id="new-password"
+                type="password"
+                [(ngModel)]="passwordData.newPassword"
+                name="newPassword"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="repeat-password">Ponovite novu lozinku:</label>
+              <input
+                id="repeat-password"
+                type="password"
+                [(ngModel)]="passwordData.repeatPassword"
+                name="repeatPassword"
+                required
+              />
+            </div>
+            <button type="submit" class="btn-submit">Change Password</button>
+          </form>
+          <p *ngIf="passwordErrorMessage" class="error">{{ passwordErrorMessage }}</p>
+          <p *ngIf="passwordSuccessMessage" class="success">{{ passwordSuccessMessage }}</p>
+        </div>
+      </div>
+      
+  </div>
+  

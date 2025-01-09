@@ -71,4 +71,24 @@ export class ApiService {
       headers: { 'Content-Type': 'application/json' },
     });
   }
+
+  getUserProfile() {
+    return this.http.get('http://localhost/news-portal-api/get_user_profile.php', {
+      withCredentials: true, // Ensure the session is included
+    });
+  }
+  
+  updateUserProfile(user: { name: string; surname: string; email: string }) {
+    return this.http.post('http://localhost/news-portal-api/update_user_profile.php', user, {
+      withCredentials: true, // Ensure the session is included
+    });
+  }
+  
+  changePassword(passwordData: any) {
+    return this.http.post('http://localhost/news-portal-api/change_password.php', passwordData, {
+      withCredentials: true, // Ensure session is included
+    });
+  }
+  
+  
 }

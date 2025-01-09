@@ -44,4 +44,8 @@ export class HeaderComponent {
       this.router.navigate(['/']);
     }
   }
+
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }  
 }
