@@ -70,7 +70,7 @@ export class ProfileComponent {
   changePassword() {
     this.api.changePassword(this.passwordData).subscribe(
       (response: any) => {
-        if (response.success) {
+        if (response?.success) {
           this.passwordSuccessMessage = response.message || 'Lozinka je uspješno promijenjena.';
           this.passwordErrorMessage = '';
           this.passwordData = { currentPassword: '', newPassword: '', repeatPassword: '' };
